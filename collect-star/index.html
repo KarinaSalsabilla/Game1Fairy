@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @font-face {
+            font-family: 'SuperShiny';
+            src: url('assets/fonts/SuperShiny.ttf') format('truetype');
+        }
+
+         @font-face {
+            font-family: 'SuperPixel';
+            src: url('assets/fonts/SuperPixel.ttf') format('truetype');
+        }
+    </style>
+
+    <title>Collect Star Game</title>
+    <script>
+        var layoutSize = { 'w': 800, 'h': 600 };
+        var X_POSITION;
+        var Y_POSITION;
+        var relativeSize;
+        var snd_touch = null;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+</head>
+
+<body>
+    <script src="sceneMenu.js"></script>    
+    <script src="level.js"></script>    
+    <script src="level1.js"></script>
+    <script src="level2.js"></script>
+    <script src="level3.js"></script>
+    <script src="level4.js"></script>
+    <script src="level5.js"></script>
+    <script src="sceneWin.js"></script>
+    <script src="sceneGameOver.js"></script>
+
+    <script>
+        const config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 300 },
+                    debug: false // Ganti true kalau mau lihat bounding box
+                }
+            },
+            scene: [sceneMenu,Level,Game,Level2,Level3,Level4,Level5,SceneWin,SceneGameOver],
+            scale: {
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH
+            }
+        };
+
+        const game = new Phaser.Game(config);
+    </script>
+</body>
+
+</html>

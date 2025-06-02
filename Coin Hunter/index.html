@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="scenePlay.js"></script>
+    <script src="sceneGameOver.js"></script>
+    <script>
+        var layoutSize = { 'w': 1024, 'h': 768 };
+        var X_POSITION;
+        var Y_POSITION;
+        var relativeSize;
+    </script>
+
+
+    <title>Coin Hunter - Karina</title>
+</head>
+
+<body>
+    <script>
+        const config = {
+            type: Phaser.AUTO,
+            width: layoutSize.w,
+            height: layoutSize.h,
+            scene: [scenePlay, sceneGameOver],
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 400 },
+                    debug: false
+                }
+            },
+            scale: {
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH,
+                width: layoutSize.w,
+                height: layoutSize.h
+            }
+        };
+
+        const game = new Phaser.Game(config);
+
+        window.addEventListener('resize', () => {
+            game.scale.resize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+
+
+</body>
+
+</html>

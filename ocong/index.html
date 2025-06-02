@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var snd_ambience = null;
+    </script>
+
+    <script>
+        // global variabel,bisa diakses dari mana saja
+        var snd_ambience = null;
+        var layoutSize = {'w':1024,'h':768};
+        var X_POSITION;
+        var Y_POSITION;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="sceneMenu.js"></script>
+    <script src="scenePlay.js"></script>
+</head>
+
+<body>
+    <script>
+        const config = {
+            type: Phaser.AUTO,
+            // Mulai dengan ukuran berdasarkan ukuran jendela
+            width: 1024,
+            height: 768,
+            scene: [sceneMenu, scenePlay],
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 200 },
+                }
+            },
+            scale: {
+                mode: Phaser.Scale.RESIZE,  // Agar game menyesuaikan ukuran jendela
+                autoCenter: Phaser.Scale.CENTER_BOTH, // Menjaga game tetap terpusat
+            }
+        };
+
+        const game = new Phaser.Game(config);
+
+        // Agar game tetap fullscreen saat ukuran jendela diubah
+        window.addEventListener('resize', () => {
+            game.scale.resize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+</body>
+
+</html>

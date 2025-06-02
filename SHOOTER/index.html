@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="sceneMenu.js"></script>
+    <script src="scenePilihHero.js"></script>
+    <script src="scenePlay.js"></script>
+    <script src="sceneGameOver.js"></script>
+    <script src="sceneGameWin.js"></script>
+    <script>
+        var layoutSize = { 'w': 768, 'h': 1024 };
+        var X_POSITION;
+        var Y_POSITION;
+        var currentHero = 0;
+        var countHero = 2;
+        var snd_touch = null;
+    </script>
+
+    <title>Shooter Game</title>
+</head>
+
+<body>
+    <script>
+
+        const config = {
+            type: Phaser.AUTO,
+            scene: [sceneMenu, scenePilihHero, scenePlay, sceneGameOver, sceneGameWin],
+            scale: {
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH,
+                width: 768,
+                height: 1024
+            }
+        };
+
+        const game = new Phaser.Game(config);
+
+    </script>
+
+
+</body>
+
+</html>
